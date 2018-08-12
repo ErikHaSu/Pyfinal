@@ -1,0 +1,25 @@
+.slider{
+    padding-left: 22.5%;
+    width: 55%;
+}
+.div-forms{
+    padding-left: 20%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+.forms{
+    background-color: rgb(255, 255, 255);
+    width: 75%;
+}
+.uk-input{
+    width: 75%;
+}
+.body{
+    background-color: rgb(244,244,244);
+}
+#btn{
+    background-color: gray;
+}
+.uk-select{
+    width: 20%;
+}

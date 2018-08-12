@@ -1,0 +1,75 @@
+[{
+    "group":"Admin",
+    "permissions":[
+        {
+        "resource":"*",
+        "methods":"*",
+        "action":"allow"
+        }
+]
+},
+{
+    "group":"Apprentice",
+    "permissions":[
+        {
+            "resource":"/edit",
+            "methods":["GET","POST"],
+            "action":"allow" 
+        },
+        {
+            "resource":"*",
+            "methods":["GET"],
+            "action":"allow" 
+        }
+        
+    ]
+},
+{
+    "group":"Advanced",
+    "permissions":[
+        {
+            "resource":"/card",
+            "methods":["GET","POST"],
+            "action":"allow" 
+        },
+        {
+            "resource":"/edit-card",
+            "methods":["GET"],
+            "action":"allow" 
+        },{
+            "resource":"/logout",
+            "methods":["GET"],
+            "action":"allow" 
+        },{
+            "resource":"/edit",
+            "methods":["GET","POST"],
+            "action":"allow"
+        }
+      
+
+    ]
+},
+{
+    "group":"User",
+    "permissions":[
+        {
+            "resource":"/login",
+            "methods":["GET","POST"],
+            "action":"allow"
+        },
+        {
+            "resource":"/signup",
+            "methods":["GET","POST"],
+            "action":"allow" 
+        },{
+            "resource":"/logout",
+            "methods":["GET"],
+            "action":"allow" 
+        },{
+            "resource":"/edit",
+            "methods":["GET","POST"],
+            "action":"allow"
+        }
+    ]
+}
+]

@@ -1,0 +1,22 @@
+<%include _header%>
+<div class="div-login">
+<form class="login" action ="/login" method="post">
+    <fieldset class="uk-fieldset">
+        <h1> Log in </h1>
+
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">User name</label>
+            <br>
+            <input class="uk-input" name="username" type="text" placeholder="user">
+        </div>
+
+        <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-text">Password</label>
+                <br>
+                <input class="uk-input" name="password" type="text" placeholder="12345">
+        </div>
+        <button id="btn" class="uk-button uk-button-default" type="submit" value="Save">Submit</button>
+    </fieldset>
+</form>
+</div>
+<%include _footer%>

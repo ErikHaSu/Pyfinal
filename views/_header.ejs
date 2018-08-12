@@ -1,0 +1,60 @@
+<!Doctype html>
+<html>
+<head>
+    <title> Trading Card games </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
+</head>
+<body class="body">
+    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
+        <nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;">
+            <div class="uk-navbar-left">
+                <ul class="uk-navbar-nav">
+                        <li class="uk-active"><a href="/index">TCG</a></li>
+                        <% if(currentUser) { %>
+                            <li>
+                                <a href="/add-card">Add card</a> 
+                            </li>
+                        <div class="uk-navbar-right">
+                            <ul class="uk-navbar-nav">
+                                <li>                           
+                                    <a href="/edit"> Hello,<%= currentUser.displayName %> </a>
+                                </li>
+                                <li>
+                                    <a href="/login" uk-icon="sign-out">Log out</a>
+                                </li>
+                            </ul>
+                        </div>
+                    <% } else { %>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li> 
+                        <a href="/login" uk-icon="sign-in">Log in</a>
+                    </li>
+                    <li>
+                        <a href="signup" uk-icon="plus">Sign up</a>
+                    </li>
+                   
+                </ul>
+            </div>
+            <% } %>
+        </nav>
+    </div>
+    <div class="container">
+            <% errors.forEach(function(error) { %>
+            <div class="uk-alert-danger" role="alert">
+            <%=error%>
+            </div>
+            <%})%>
+            <%infos.forEach(function(info){%>
+            <div class="uk-alert-warning" role="alert">
+            <%=info%>
+            </div>
+            <%})%>
+    </div>

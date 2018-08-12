@@ -1,0 +1,31 @@
+<%include _header%>
+<div class="div-forms">
+        <form class="forms" action ="/signup" method="post">
+            <fieldset class="uk-fieldset">
+                <h1> Log in </h1>
+        
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">User name</label>
+                    <br>
+                    <input class="uk-input" type="text" name="username" placeholder="user">
+                </div>
+        
+                <div class="uk-margin">
+                        <label class="uk-form-label" for="form-stacked-text">Password</label>
+                        <br>
+                        <input class="uk-input" name="password" type="password" placeholder="12345">
+                </div>
+                <div class="uk-margin">
+                        <label class="uk-form-label" for="form-stacked-text">Type of player</label>
+                        <br>
+                        <select class="uk-select" name="role">
+                            <option value = Apprentice>Apprentice</option>
+                            <option value = Advanced >Advanced</option>
+                            <option value = Admin >Admin</option>
+                        </select>
+                    </div>
+                <button id="btn" class="uk-button uk-button-default" type="submit" value="Save">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+<%include _footer%>

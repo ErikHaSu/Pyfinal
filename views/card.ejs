@@ -1,0 +1,32 @@
+<%include _header%>
+<%if((name_card)&&(name_card.id===card.id)) {%>
+<a Href="/edit_card" class="pull-right">Edit_card</a>
+<% } %>
+
+<h1><%= card.name_card%></h1>
+
+<%if(card.description) {%>
+    <p><%=card.description%></p>
+<%} %>
+<%if (card.whatTCG){%>
+    <p><%= card.whatTCG%></p>
+<%}%>
+
+<% if(card.comm) {%>
+<div class="uk-margin">
+        <%= card.comm ||""%>
+</div>
+<%}%>
+<form action="/comment" method="post">
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-text">which your opinion about this card?</label>
+        <textarea class="uk-textarea"name="comm" rows="5" placeholder="comment">
+        </textarea>
+    </div>
+    <button class="uk-button uk-button-default" type="submit">send</button>
+</form>
+<%if (currentUser.role==Admin) {%>
+    <button class="uk-button uk-button-default" type="submit" Href="/edit_card">Edit Card</button>
+<%}%>
+
+<%include _footer%>

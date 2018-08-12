@@ -1,0 +1,23 @@
+<%include _header%>
+<form action ="/edit" method="post">
+    <fieldset class="uk-fieldset">
+        <legend class="uk-legend">Profile</legend>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Nick name</label>
+            <input class="uk-input" type="text" name="displayName" placeholder="nick name" value="<%= currentUser.displayName ||""%>">
+        </div>
+        <Br>
+        <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-text">Something about you</label>
+            <textarea class="uk-textarea" name="bio" rows="5" placeholder="something">
+            <%= currentUser.bio||""%>
+            </textarea>
+        </div>
+        <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-text">what is your favorite TGG?</label>
+                <input class="uk-input" type="text" name="favoriteTCG" placeholder="Pokemon" value="<%= currentZombie.favoriteTCG ||""%>">
+        </div>
+        <button class="uk-button uk-button-default" type="submit" value="update">Submit</button>
+    </fieldset>
+</form>
+<%include _footer%>
