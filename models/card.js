@@ -6,6 +6,8 @@ var cardSchema = mongoose.Schema({
     whatTCG:{type:String,require:true},
     comm:{type:String,require:true}
 });
-
+var donothing =() =>{
+    
+}
 var card = mongoose.model("card",cardSchema);
 module.exports = card;

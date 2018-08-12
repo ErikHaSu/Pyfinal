@@ -1,6 +1,8 @@
 var bcrypt = require ('bcrypt-nodejs');
 var mongoose = require ('mongoose');
 
+var SALT_FACT = 10;
+
 var UserSchema = mongoose.Schema({
     username:{type:String,required:true,unique:true},
     displayName:{type:String},
@@ -41,5 +43,5 @@ UserSchema.methods.checkPassword = function(guess, done){
 UserSchema.methods.name = function() {
     return this.displayName ||this.username;
 }
-var user = mongoose.model("zombie",UserSchema);
+var user = mongoose.model("user",UserSchema);
 module.exports = user;

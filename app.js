@@ -34,7 +34,7 @@ app.use(session({
 app.use(flash());
 
 app.use(passport.initialize({
-    userProperty:"com"
+    userProperty:"user"
 }));
 
 app.use(passport.session());

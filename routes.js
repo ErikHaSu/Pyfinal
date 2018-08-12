@@ -2,19 +2,11 @@ var express = require('express');
 var passport = require('passport');
 //var Imagen = require("./views/add-card");
 var User = require("./models/user");
+var user = require("./models/user")
 var card = require("./models/card");
 var acl = require('express-acl');
 
 var router = express.Router();
-
-acl.config({
-    baseUrl:'/',
-    defaultRole:'User',
-    decodedObjectName:'User',
-    roleSearchPath:'User.role'
-});
-
-router.use(acl.authorize);
 
 router.use((req,res,next) => {
     res.locals.currentUser = req.user;
@@ -24,11 +16,20 @@ router.use((req,res,next) => {
     if (req.user){
         req.session.role = req.user.role;
     }else{
-        req.session.role = 'User';
+        req.session.role = 'user';
     }
     console.log(req.session);
     next();
 });
+
+acl.config({
+    baseUrl:'/',
+    defaultRole:'user',
+    decodedObjectName:'user',
+    roleSearchPath:'user.role'
+});
+
+router.use(acl.authorize);
 
 router.get('/',(req,res,next) => {
     User.find()

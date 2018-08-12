@@ -50,7 +50,7 @@
     ]
 },
 {
-    "group":"User",
+    "group":"user",
     "permissions":[
         {
             "resource":"/login",
