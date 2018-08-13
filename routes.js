@@ -2,7 +2,7 @@ var express = require('express');
 var passport = require('passport');
 //var Imagen = require("./views/add-card");
 var User = require("./models/user");
-var user = require("./models/user")
+var user = require("./models/user");
 var card = require("./models/card");
 var acl = require('express-acl');
 
@@ -42,7 +42,7 @@ router.get('/',(req,res,next) => {
     });
 });
 
-router.get("/card/:name_card",(req,res,next) => {
+/*router.get("/card/:name_card",(req,res,next) => {
     card.findOne({name_card:req.params.name_card},(err,card) =>{
         if(err){
             return next(err);
@@ -52,7 +52,7 @@ router.get("/card/:name_card",(req,res,next) => {
         }
         res.render("card",{card:card});
     });
-});
+});*/
 
 router.get('/signup',(req,res) => {
     res.render('signup');
@@ -123,15 +123,15 @@ function ensureAuthenticated(req,res,next){
     }
 }
 
-/*router.get('/index_weapons',(req,res,next) => {
-    arma.find()
+router.get('/add-card',(req,res,next) => {
+    card.find()
     .sort({createdat:'descending'})
-    .exec((err,arma) =>{
+    .exec((err,card) =>{
         if(err){
             return next(err);
         }
-        res.render('index_weapons',{arma:arma});
+        res.render('add-card',{card:card});
     });
-});*/
+});
 
 module.exports = router;
