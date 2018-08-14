@@ -28,16 +28,16 @@ acl.config({
     roleSearchPath:'user.role'
 });
 
+
 router.use(acl.authorize);
 
 router.get('/',(req,res,next) => {
-    User.find()
-    .sort({createdAt:'descending'})
-    .exec((err,user) =>{
+    card.find()
+    .exec((err,card) =>{
         if(err){
             return next(err);
         }
-        res.render('index',{user:user});
+        res.render('index',{card:card});
     });
 });
 router.get("/card/:name_card",(req,res,next) => {

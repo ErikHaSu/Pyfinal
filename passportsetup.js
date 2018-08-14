@@ -1,6 +1,18 @@
 var passport = require('passport');
 var user = require ('./models/user');
+var card = require('./models/card');
 var LocalStrategy = require("passport-local").Strategy;
+
+module.exports = () =>{
+    passport.serializeUser((card,done) => {
+        done(null,card._id);
+    });
+    passport.deserializeUser((id,done) => {
+        card.findById(id,(err,card) => {
+            done(err,card);
+        });
+    });
+};
 
 module.exports = () =>{
     passport.serializeUser((user,done) => {

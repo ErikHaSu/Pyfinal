@@ -1,22 +1,23 @@
 <%include _header%>
-<%if((name_card)&&(name_card.id===card.id)) {%>
-<a Href="/edit_card" class="pull-right">Edit_card</a>
-<% } %>
+<div class="main-card">
+    <h1><%= card.name_card%></h1>
 
-<h1><%= card.name_card%></h1>
+    <img class="img-sec" data-src="/public/images/<%= currentcard._id%>.<%=currentcard.extension%>" uk-img>
 
-<%if(card.description) {%>
-    <p><%=card.description%></p>
-<%} %>
-<%if (card.whatTCG){%>
-    <p><%= card.whatTCG%></p>
-<%}%>
+    <%if(card.description) {%>
+        <p><%=card.description%></p>
+    <%} %>
+    <%if (card.whatTCG){%>
+        <p><%= card.whatTCG%></p>
+    <%}%>
+</div>
 
 <% if(card.comm) {%>
 <div class="uk-margin">
         <%= card.comm ||""%>
 </div>
 <%}%>
+
 <form action="/card" method="post">
     <div class="uk-margin">
         <label class="uk-form-label" for="form-stacked-text">which your opinion about this card?</label>
@@ -25,7 +26,7 @@
     </div>
     <button class="uk-button uk-button-default" type="submit">send</button>
 </form>
-<%if (currentUser.role==Admin) {%>
+<%if (currentUser.role=='Admin') {%>
     <button class="uk-button uk-button-default" type="submit" Href="/edit_card">Edit Card</button>
 <%}%>
 

@@ -46,5 +46,17 @@
     </div>
 </div>
 <h1> search bar </h1>
-<img data-src="/public/images/<%= currentcard._id%>.<%=currentcard.extension%>" width="50px" height="50px" alt="" uk-img>
+
+<%card.forEach((card) =>{%>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="/card/<%=card.name_card%>">
+        <%=card.name_card%>
+        </a>
+    <div>
+        <img class="img-fs" data-src="/public/images/<%= currentcard._id%>.<%=currentcard.extension%>" uk-img/>
+    </div>
+    </div>
+</div>
+<%})%>
 <%include _footer%>

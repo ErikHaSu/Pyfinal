@@ -31,3 +31,11 @@
 .uk-select{
     width: 20%;
 }
+img{
+   max-width: 100%;
+}
+.img-fs{
+    width: 70px;
+    height: 140px;
+    margin-left: 2%;
+}
