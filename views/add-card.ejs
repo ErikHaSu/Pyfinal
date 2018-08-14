@@ -5,23 +5,26 @@
     <legend class="uk-legend">Add Card</legend>
     <div class="uk-margin">
         <label class="uk-form-label" for="form-stacked-text">Name of card</label>
-        <input class="uk-input" type="text" placeholder="Input">
+        <Br>
+        <input id = "add-card" name="name_card" class="uk-input" type="text" placeholder="el bolbi">
     </div>
-        <div class="uk-margin" uk-margin>
-            <label class="uk-form-label" for="form-stacked-text">Image of card</label>
-            <Br>
-            <div uk-form-custom="target: true">
-                <input type="file" name="img" id="img">
-                <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
-            </div>
+    <div class="uk-margin" uk-margin>
+        <label class="uk-form-label" for="form-stacked-text">Image of card</label>
+        <Br>
+        <div uk-form-custom="target: true">
+            <input type="file" name="archivo" id="archivo">
+            <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
         </div>
+    </div>
     <div class="uk-margin">
             <label class="uk-form-label" for="form-stacked-text">Description</label>
-        <textarea class="uk-textarea" rows="5" placeholder="Textarea"></textarea>
+            <Br>
+        <textarea class="uk-textarea" rows="5" name="description" placeholder="Something about this card"></textarea>
     </div>
     <div class="uk-margin">
     <label class="uk-form-label" for="form-stacked-text">What game does it belong to?</label>
-    <input class="uk-input" type="text" placeholder="Yu-Gi-Oh!">
+    <Br>
+    <input id = "add-card" class="uk-input" type="text" name="whatTCG" placeholder="Yu-Gi-Oh!">
 </div>
 <button class="uk-button uk-button-default" type="submit" value="Save">Submit</button>
 </fieldset>

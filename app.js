@@ -9,7 +9,7 @@ var flash = require('connect-flash');
 var routes = require('./routes');
 var passportsetup = require ("./passportsetup");
 var app = express();
-//var formidabe = require("express-formidable");
+var formidabe = require("express-form-data");
 var favicon = require('serve-favicon');
 
 mongoose.connect('mongodb://localhost:27017/py-final');
@@ -19,11 +19,13 @@ app.set('port', process.env.PORT || 3000);
 
 app.set('views',path.resolve(__dirname,'views'));
 
+app.use(express.static(path.resolve(__dirname,'public')));
+
 app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 
 app.set('view engine',"ejs");
 
-
+app.use(formidabe.parse({ keepExtensions:true }));
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(cookieParser());
@@ -39,8 +41,6 @@ app.use(passport.initialize({
 }));
 
 app.use(passport.session());
-
-//app.use(formidabe.parse({ keepExtensions:true }));
 
 app.use(routes);
 

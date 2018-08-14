@@ -1,11 +1,10 @@
 var express = require('express');
 var passport = require('passport');
-//var Imagen = require("./views/add-card");
 var User = require("./models/user");
-var user = require("./models/user");
+//var user = require("./models/user");
 var card = require("./models/card");
 var acl = require('express-acl');
-
+var fs = require("fs.extra");
 var router = express.Router();
 
 router.use((req,res,next) => {
@@ -41,8 +40,7 @@ router.get('/',(req,res,next) => {
         res.render('index',{user:user});
     });
 });
-
-/*router.get("/card/:name_card",(req,res,next) => {
+router.get("/card/:name_card",(req,res,next) => {
     card.findOne({name_card:req.params.name_card},(err,card) =>{
         if(err){
             return next(err);
@@ -52,7 +50,7 @@ router.get('/',(req,res,next) => {
         }
         res.render("card",{card:card});
     });
-});*/
+});
 
 router.get('/signup',(req,res) => {
     res.render('signup');
@@ -133,5 +131,29 @@ router.get('/add-card',(req,res,next) => {
         res.render('add-card',{card:card});
     });
 });
+
+router.post('/add-card',function(req,res){
+    console.log(req.files.archivo);
+    var extension = req.files.archivo.name.split(".").pop();
+    var data = {
+        name_card: req.body.name_card,
+        description: req.body.description,
+        whatTCG: req.body.description,
+        creator: res.locals.user,
+        extension:extension
+    }
+    var imagen = new card(data);
+    imagen.save(function(err){
+        if(!err){
+            fs.copy(req.files.archivo.path,"public/images/"+imagen._id+"."+extension);
+            res.redirect("/");
+        }else{
+            console.log(imagen);
+            res.render(err);
+        }
+
+    });
+});
+
 
 module.exports = router;

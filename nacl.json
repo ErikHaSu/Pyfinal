@@ -33,13 +33,19 @@
             "action":"allow" 
         },
         {
-            "resource":"/edit-card",
-            "methods":["GET"],
+            "resource":"/add-card",
+            "methods":["GET","POST"],
             "action":"allow" 
-        },{
+        },
+        {
             "resource":"/logout",
             "methods":["GET"],
             "action":"allow" 
+        },
+        {
+            "resource":"/index",
+            "methods":["GET","POST"],
+            "action":"allow"
         },{
             "resource":"/edit",
             "methods":["GET","POST"],
@@ -67,11 +73,7 @@
             "methods":["GET","POST"],
             "action":"allow" 
         },{
-            "resource":"/logout",
-            "methods":["GET"],
-            "action":"allow" 
-        },{
-            "resource":"/edit",
+            "resource":"/add-card",
             "methods":["GET","POST"],
             "action":"allow"
         }
