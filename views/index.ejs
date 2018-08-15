@@ -44,17 +44,22 @@
             <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
         </div>
     </div>
+    <br/>
     <div class="mini-card">
-        <div calss="mini-todo">
             <%card.forEach((card) =>{%>
-                <h2> <%=card.name_card%> </h2>
-                <a href="/card/<%=card.name_card%>"><img class="img-fs" data-src="/images/<%=card._id%>.<%=card.extension%>" uk-img/></a>
+                <div class="mini-todo">
+                    <h2><%=card.name_card%></h2>
+                    <a href="/card/<%=card.name_card%>"><img class="img-fs" data-src="/images/<%=card._id%>.<%=card.extension%>" uk-img/></a>
+                </div>
             <%}) %>
-        </div>
+    </div>
+    <div class="page">
+        <%%>
+        <%%>
     </div>
 
 </div>
-    
+
 
 
 

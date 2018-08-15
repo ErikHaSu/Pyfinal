@@ -17,6 +17,11 @@
             "action":"allow" 
         },
         {
+            "resource":"/logOut",
+            "methods":["GET","POST"],
+            "action":"allow" 
+        },
+        {
             "resource":"*",
             "methods":["GET"],
             "action":"allow" 
@@ -27,7 +32,6 @@
 {
     "group":"Advanced",
     "permissions":[
-  
         {
             "resource":"/card/:name_card",
             "methods":["GET","POST"],
@@ -61,7 +65,7 @@
     "permissions":[
         {
             "resource":"/index",
-            "methods":["GET","POST"],
+            "methods":["GET"],
             "action":"allow"
         },
         {
@@ -73,10 +77,6 @@
             "resource":"/signup",
             "methods":["GET","POST"],
             "action":"allow" 
-        },{
-            "resource":"/add-card",
-            "methods":["GET","POST"],
-            "action":"allow"
         },
         {
             "resource":"*",

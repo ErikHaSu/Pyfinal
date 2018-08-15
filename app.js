@@ -12,7 +12,7 @@ var app = express();
 var formidabe = require("express-form-data");
 var favicon = require('serve-favicon');
 
-mongoose.connect('mongodb://localhost:27017/py-final');
+mongoose.connect('mongodb://Erik:floresW1@ds221242.mlab.com:21242/py-final');
 
 passportsetup();
 app.set('port', process.env.PORT || 3000);

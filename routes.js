@@ -41,6 +41,27 @@ router.get('/',(req,res,next) => {
     });
 });
 
+router.get('//:page' ,(req,res,next)=>{
+    let perPage=8;
+    let page = req.params.page || 1; 
+
+    card   
+        .find({})
+        .skip(perPage * page - perPage)
+        .limit(perPage)
+        .exec((err, card)=>{
+            card.count(err, (count)=>{
+                if (err) return next(err);
+                res.render('index',{card:card},{
+                    card,
+                    current: page,
+                    pages: Math.ceil(count / perPage)
+                });
+            })
+
+        });
+});
+
 router.get("/card/:name_card",ensureAuthenticated,(req,res,next) => {
     card.findOne({name_card:req.params.name_card},(err,card) =>{
         if(err){
@@ -53,16 +74,19 @@ router.get("/card/:name_card",ensureAuthenticated,(req,res,next) => {
     });
 });
 
+
 router.delete("/card/:name_card",ensureAuthenticated,(req,res,next)=>{
-    card.findOneAndRemove({name_card:req.params.name_card}, function(err){
+    card.remove({name_card:req.params.name_card}, (err) => {
         if(!err){
+            alert("Deleted");
             res.redirect("/");
         }else{
             console.log(err);
-            res.redirect("/card/:name_card");
+            res.redirect("/");
         }
-    })
+    });
 });
+
 
 router.get('/signup',(req,res) => {
     res.render('signup');

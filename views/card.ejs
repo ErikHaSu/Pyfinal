@@ -1,7 +1,7 @@
 <%include _header%>
 <div id="main-card">
         <div id="main-img">
-        <h1><%= card.name_card%></h1>
+        <h1 name="name"><%= card.name_card%></h1>
             <img class="img-sec" data-src="/images/<%= card._id%>.<%=card.extension%>" uk-img/>
         </div>
         
@@ -27,12 +27,12 @@
 </div>
 
 <%if (currentUser.role=='Admin') {%>
-<form class ="form-card" action="/card/:name_card" method="delete" method="post">
+<form class ="form-card" action="/card/:name_card" method="delete">
     <div class="uk-margin">
         <button class="uk-button uk-button-default" type="submit">Delete Card</button>
     </div>
 </form>
-   
+
 <%}%>
 
 <%include _footer%>

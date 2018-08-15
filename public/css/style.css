@@ -59,4 +59,23 @@ img{
 #main-data{
     float: left;
     padding-bottom: 5%;
+    padding-left: 5%;
+}
+
+.mini-todo{
+    display: inline-table;
+    padding: 50px;
+
+    
+}
+
+.mini-todo img{
+    display: block;  
+    height: 300px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.page{
+    display: inline-block;
 }
