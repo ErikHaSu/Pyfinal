@@ -1,7 +1,8 @@
 <%include _header%>
+<div class="God">
 <div class="slider">
     <div class="uk-position-relative uk-visible-toggle uk-light" uk-slider="clsActivated: uk-transition-active; center: true animation: scale; ratio: 8:3; autoplay: true" >      
-    <ul class="uk-slider-items uk-grid" >
+        <ul class="uk-slider-items uk-grid" >
                 <li class="uk-width-3-4">
                         <div class="uk-panel">
                             <img src="https://www.telesurtv.net/__export/1486144697512/sites/telesur/img/news/2017/02/03/2-universo-componentes.jpg" alt="">
@@ -39,24 +40,23 @@
                     </div>
                 </li>
         </ul>
-    
         <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
         <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-
     </div>
 </div>
+<div id="mini-card">
+    <%card.forEach((card) =>{%>
+    <div id="mini-todo" class="panel panel-default">
+        <div id=""class="panel-heading">
+            <h2><%=card.name_card%></h2>
+        </div>
+        <a href="/card/<%=card.name_card%>"><img class="img-fs" data-src="/images/<%=card._id%>.<%=card.extension%>" uk-img/></a>
+    </div>
+    <%})%>
+</div>
+
 <h1> search bar </h1>
-
-<%card.forEach((card) =>{%>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <a href="/card/<%=card.name_card%>">
-        <%=card.name_card%>
-        </a>
-    <div>
-        <img class="img-fs" data-src="/public/images/<%= currentcard._id%>.<%=currentcard.extension%>" uk-img/>
-    </div>
-    </div>
 </div>
-<%})%>
+
+
 <%include _footer%>

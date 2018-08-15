@@ -40,7 +40,8 @@ router.get('/',(req,res,next) => {
         res.render('index',{card:card});
     });
 });
-router.get("/card/:name_card",(req,res,next) => {
+
+router.get("/card/:name_card",ensureAuthenticated,(req,res,next) => {
     card.findOne({name_card:req.params.name_card},(err,card) =>{
         if(err){
             return next(err);
@@ -49,6 +50,18 @@ router.get("/card/:name_card",(req,res,next) => {
             return next(404);
         }
         res.render("card",{card:card});
+    });
+});
+
+router.post("/card/:name_card",ensureAuthenticated,(req,res,next)=>{
+    req.card.comm = req.body.comm;
+    req.card.save((err)=>{
+        if(err){
+            next(err);
+            return;
+        }
+        req.flash("info","Update Card");
+        res.redirect("/card/:name_card");
     });
 });
 
@@ -138,7 +151,7 @@ router.post('/add-card',function(req,res){
     var data = {
         name_card: req.body.name_card,
         description: req.body.description,
-        whatTCG: req.body.description,
+        whatTCG: req.body.whatTCG,
         creator: res.locals.user,
         extension:extension
     }
@@ -155,5 +168,5 @@ router.post('/add-card',function(req,res){
     });
 });
 
-
+    
 module.exports = router;

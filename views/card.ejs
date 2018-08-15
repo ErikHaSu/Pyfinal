@@ -1,31 +1,41 @@
 <%include _header%>
-<div class="main-card">
-    <h1><%= card.name_card%></h1>
+<div id="main-card">
+        <div id="main-img">
+        <h1><%= card.name_card%></h1>
+            <img class="img-sec" data-src="/images/<%= card._id%>.<%=card.extension%>" uk-img/>
+        </div>
+        
+        <div id="main-data">
+            <%if(card.description) {%>
+                <h2> Description </h2>
+                <p><%=card.description%></p>
+            <%} %>
+            <%if (card.whatTCG){%>
+                <h2> Trading Card game </h2>
+                <p><%= card.whatTCG%></p>
+            <%}%>
+        </div>
 
-    <img class="img-sec" data-src="/public/images/<%= currentcard._id%>.<%=currentcard.extension%>" uk-img>
-
-    <%if(card.description) {%>
-        <p><%=card.description%></p>
-    <%} %>
-    <%if (card.whatTCG){%>
-        <p><%= card.whatTCG%></p>
-    <%}%>
+        <div>
+            <% if(card.comm) {%>
+                <div class="uk-margin">
+                        <h2> Comment </h2>
+                        <%= card.comm ||""%>
+                </div>
+            <%}%>
+        </div>
 </div>
 
-<% if(card.comm) {%>
-<div class="uk-margin">
-        <%= card.comm ||""%>
-</div>
-<%}%>
-
-<form action="/card" method="post">
+<form class ="form-card"action="/card/:name_card" method="post">
     <div class="uk-margin">
         <label class="uk-form-label" for="form-stacked-text">which your opinion about this card?</label>
-        <textarea class="uk-textarea"name="comm" rows="5" placeholder="comment">
+        <Br/>
+        <textarea class="uk-textarea"name="comm" id="comm" rows="5" placeholder="comment">
         </textarea>
     </div>
     <button class="uk-button uk-button-default" type="submit">send</button>
 </form>
+
 <%if (currentUser.role=='Admin') {%>
     <button class="uk-button uk-button-default" type="submit" Href="/edit_card">Edit Card</button>
 <%}%>
