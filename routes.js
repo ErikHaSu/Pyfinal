@@ -53,16 +53,15 @@ router.get("/card/:name_card",ensureAuthenticated,(req,res,next) => {
     });
 });
 
-router.post("/card/:name_card",ensureAuthenticated,(req,res,next)=>{
-    req.card.comm = req.body.comm;
-    req.card.save((err)=>{
-        if(err){
-            next(err);
-            return;
+router.delete("/card/:name_card",ensureAuthenticated,(req,res,next)=>{
+    card.findOneAndRemove({name_card:req.params.name_card}, function(err){
+        if(!err){
+            res.redirect("/");
+        }else{
+            console.log(err);
+            res.redirect("/card/:name_card");
         }
-        req.flash("info","Update Card");
-        res.redirect("/card/:name_card");
-    });
+    })
 });
 
 router.get('/signup',(req,res) => {
@@ -168,5 +167,5 @@ router.post('/add-card',function(req,res){
     });
 });
 
-    
+
 module.exports = router;

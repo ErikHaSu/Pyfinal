@@ -26,18 +26,13 @@
         </div>
 </div>
 
-<form class ="form-card"action="/card/:name_card" method="post">
-    <div class="uk-margin">
-        <label class="uk-form-label" for="form-stacked-text">which your opinion about this card?</label>
-        <Br/>
-        <textarea class="uk-textarea"name="comm" id="comm" rows="5" placeholder="comment">
-        </textarea>
-    </div>
-    <button class="uk-button uk-button-default" type="submit">send</button>
-</form>
-
 <%if (currentUser.role=='Admin') {%>
-    <button class="uk-button uk-button-default" type="submit" Href="/edit_card">Edit Card</button>
+<form class ="form-card" action="/card/:name_card" method="delete" method="post">
+    <div class="uk-margin">
+        <button class="uk-button uk-button-default" type="submit">Delete Card</button>
+    </div>
+</form>
+   
 <%}%>
 
 <%include _footer%>
